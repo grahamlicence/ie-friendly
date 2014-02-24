@@ -89,7 +89,7 @@ module.exports = function(grunt) {
         styles = { type: 'stylesheet', stylesheet: { rules: result } };
         return stringify(styles);
       }
-      // console.log(f.dest)
+      // console.log(path.basename(f.dest).replace('.css', ''))
       // console.log(path.dirname(f.dest))
       grunt.log.writeln('Rule count: ' + ruleCount);
       if (ruleCount < 4090) {
@@ -101,9 +101,10 @@ module.exports = function(grunt) {
         grunt.log.writeln('File "' + f.dest + '" created.');
       } else {
         var input1 = remove(input, false, 0, 4000);
-        grunt.file.write(path.dirname(f.dest) + '/ie-import.css', input1);
-        grunt.log.writeln('File "' + path.dirname(f.dest) + '/ie-import.css" created.');
-        var result = { type: 'import', import: 'url(\'import-ie.css\')' };
+        var importName = path.basename(f.dest).replace('.css', '') + '-import.css'
+        grunt.file.write(path.dirname(f.dest) + '/' + importName, input1);
+        grunt.log.writeln('File "' + path.dirname(f.dest) + '/' + importName +'" created.');
+        var result = { type: 'import', import: 'url(\'' + importName + '\')' };
         var input2 = remove(input, true, 4000, ruleCount, result);
         grunt.file.write(f.dest, input2);
         grunt.log.writeln('File "' + f.dest + '" created.');

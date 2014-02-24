@@ -1,7 +1,7 @@
 {
   "name": "grunt-ie-friendly",
   "description": "Remove media queries for IE desktop styles",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "homepage": "https://github.com/grahamlicence/ie-friendly",
   "author": {
     "name": "Graham Licence"
@@ -35,6 +35,10 @@
   },
   "peerDependencies": {
     "grunt": "~0.4.2"
+  },  
+  "dependencies": {
+    "css-stringify": "*",
+    "css-parse": "*"
   },
   "keywords": [
     "gruntplugin"
