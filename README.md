@@ -25,11 +25,13 @@ In your project's Gruntfile, add a section named `ie_friendly` to the data objec
 ```js
 grunt.initConfig({
   ie_friendly: {
-    options: {
-      // No current options.
-    },
-    files: {
-      'filepath/output.css': 'filepath/source.css',
+    default_options: {
+      options: {
+        // No current options.
+      },
+      files: {
+        'filepath/output.css': 'filepath/source.css',
+      }
     }
   },
 });
@@ -54,3 +56,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 0.0.1 Initial release
+0.1.0 package.json updates
+0.1.1 plugin testing
