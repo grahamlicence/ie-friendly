@@ -8,6 +8,7 @@
 
 'use strict';
 var fs = require ('fs'),
+    path = require('path'),
     parse = require('css-parse'),
     stringify = require('css-stringify');
 
@@ -36,55 +37,79 @@ module.exports = function(grunt) {
         }
       });
 
-      var input = fs.readFileSync(src[0], {encoding: 'utf-8'});
+      var input = fs.readFileSync(src[0], {encoding: 'utf-8'}),
+            ruleCount = parse(input).stylesheet.rules.length;
 
-      function remove (css) {
+      // import additional stylesheet if over 4096 rule limit
+      var importRule = { type: 'import', import: 'url("split.css")' };
+
+      function remove (css, split, startAt, endAt, resultImport) {
         
         var expanded = parse(css),
             styles,
             result = [];
-            // result = '{type: "stylesheet",stylesheet:{rules:[',
-            // end = '] } }';
+
+        // add import 
+        if (split) {
+          result.push(resultImport);
+        }
             // console.log(expanded)
-            // console.log(expanded.stylesheet.rules[1])
-            console.log(expanded.stylesheet.rules[12])
+            // console.log(expanded.stylesheet.rules[0])
+            // console.log(f.dest)
+            // console.log(expanded.stylesheet.rules[12])
         
         expanded.stylesheet.rules.forEach(function (rule, ind) {
-          console.log(rule.type)
+          // console.log(rule.type)
           // console.log(ind)
           // console.log(expanded.stylesheet.rules)
+          if (ind === endAt) {
+            // stop
+            return;
+          }
+          if (ind < startAt) {
+            // already added
+            return;
+          }
           if (rule.type === 'rule') {
             result.push(rule);
           } else if (rule.media === 'print') {
-            console.log('rule!!')
-            console.log(rule)
-            result.push(rule)
+            // console.log(rule)
+            result.push(rule);
           } else if (rule.type === 'media') {
             rule.rules.forEach(function (rule) {
               // console.log(rule)
               // console.log(rule.type)
               if (rule.type === 'rule') {
-                result.push(rule)
+                result.push(rule);
               }
-            })
+            });
           }
         });
 
         styles = { type: 'stylesheet', stylesheet: { rules: result } };
-        // return result;
         return stringify(styles);
       }
-      input = remove(input);
+      // console.log(f.dest)
+      // console.log(path.dirname(f.dest))
+      grunt.log.writeln('Rule count: ' + ruleCount);
+      if (ruleCount < 4090) {
+        input = remove(input, false, 0);
+        
+        // Write the destination file.
+        grunt.file.write(f.dest, input);
+        // Print a success message.
+        grunt.log.writeln('File "' + f.dest + '" created.');
+      } else {
+        var input1 = remove(input, false, 0, 4000);
+        grunt.file.write(path.dirname(f.dest) + '/ie-import.css', input1);
+        grunt.log.writeln('File "' + path.dirname(f.dest) + '/ie-import.css" created.');
+        var result = { type: 'import', import: 'url(\'import-ie.css\')' };
+        var input2 = remove(input, true, 4000, ruleCount, result);
+        grunt.file.write(f.dest, input2);
+        grunt.log.writeln('File "' + f.dest + '" created.');
+        // split the stylesheet
+      }
 
-      // console.log(input.type)
-      // console.log(input.stylesheet.rules.length)
-      // console.log(input.stylesheet.rules[0])
-      
-      // Write the destination file.
-      grunt.file.write(f.dest, input);
-
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
     });
   });
 

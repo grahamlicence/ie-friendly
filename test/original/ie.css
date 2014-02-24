@@ -1,46 +1,42 @@
-/* line 7, ../../../src/sass/framework/_typography.scss */
 h1 {
-    font-size: 24px;
+  font-size: 24px;
 }
+/* line comment should be deleted */
 
-/* line 10, ../../../src/sass/framework/_typography.scss */
-@media only screen and (max-width: 480px) {
-    h1 {
-        font-size: 20px;
-    }
-}
-
-/* line 15, ../../../src/sass/framework/_typography.scss */
 @media only screen and (min-width: 480px) {
-    h1 {
-        font-size: 22px;
-    }
+  h1 {
+    font-size: 20px;
+  }
 }
 
-/* line 19, ../../../src/sass/framework/_typography.scss */
-@media only screen and (min-width: 769px) {
-    h1 {
-        font-size: 30px;
-    }
-    p {
-        font-size: 20px;
-    }
+@media only screen and (min-width: 780px) {
+  h1 {
+    font-size: 22px;
+  }
 }
 
-/* line 25, ../../../src/sass/framework/_typography.scss */
+@media only screen and (min-width: 960px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+}
+
 .content h2 {
   font-size: 10px;
 }
 
-/* line 29, ../../../src/sass/framework/_typography.scss */
-@media only screen and (min-width: 769px) {
-    .content h2 {
-        font-size: 15px;
-    }
+@media only screen and (min-width: 480px) {
+  .content h2 {
+    font-size: 15px;
+  }
 }
 
 @media print {
-    p {
-        font-size: 1em;
-    }
+  p {
+    font-size: 1em;
+  }
 }
