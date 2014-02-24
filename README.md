@@ -2,9 +2,6 @@
 
 > Remove media queries for IE desktop styles
 
-##Note: I am still creating this DO NOT USE
-
-
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
 
