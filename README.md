@@ -17,14 +17,14 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-ie-friendly');
 ```
 
-## The "ie_friendly" task
+## The "iefriendly" task
 
 ### Overview
-In your project's Gruntfile, add a section named `ie_friendly` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `iefriendly` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  ie_friendly: {
+  iefriendly: {
     default_options: {
       options: {
         // No current options.
@@ -39,17 +39,9 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### options.minify
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+Earmarked for release 0.2
 
 
 ### Roadmap
