@@ -51,10 +51,20 @@ Default value: `'.'`
 
 A string value that is used to do something else with whatever else.
 
+
+### Roadmap
+
+0.1 testing against current project
+
+0.2 Add minification option
+
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 0.0.1 Initial release
+
 0.1.0 package.json updates
+
 0.1.1 plugin testing
