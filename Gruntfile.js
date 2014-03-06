@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test1', ['ie_friendly']);
+  grunt.registerTask('test-task', ['ie_friendly']);
   grunt.registerTask('test', ['clean', 'ie_friendly', 'nodeunit']);
 
   // By default, lint and run all tests.

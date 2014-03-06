@@ -10,6 +10,7 @@
 var fs = require ('fs'),
     path = require('path'),
     parse = require('css-parse'),
+    _ = require('underscore-node'),
     stringify = require('css-stringify');
 
 module.exports = function(grunt) {
@@ -85,6 +86,7 @@ module.exports = function(grunt) {
             });
           }
         });
+        // console.log(result[0])
 
         styles = { type: 'stylesheet', stylesheet: { rules: result } };
         return stringify(styles);
