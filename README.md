@@ -24,7 +24,7 @@ In your project's Gruntfile, add a section named `iefriendly` to the data object
 
 ```js
 grunt.initConfig({
-  iefriendly: {
+  ie_friendly: {
     default_options: {
       options: {
         // No current options.
