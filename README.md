@@ -1,14 +1,19 @@
-# grunt-ie-friendly
+# IE friendly - mobile first styles for IE8
+## grunt-ie-friendly
 
 > Remove media queries for IE desktop styles and split large stylesheets into smaller sizes
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+Add plugin to your package.json:
 
-```shell
-npm install grunt-ie-friendly --save-dev
+```json
+{
+  "devDependencies": {
+    "grunt-ie-friendly": "~0.1.1"
+  }
+}
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -17,10 +22,10 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-ie-friendly');
 ```
 
-## The "iefriendly" task
+## The "ie_friendly" task
 
 ### Overview
-In your project's Gruntfile, add a section named `iefriendly` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `ie_friendly` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
@@ -50,9 +55,6 @@ Earmarked for release 0.2
 
 0.2 Add minification option
 
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 0.0.1 Initial release
