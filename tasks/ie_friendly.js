@@ -103,7 +103,7 @@ module.exports = function(grunt) {
         grunt.log.writeln('File "' + f.dest + '" created.');
       } else {
         var input1 = remove(input, false, 0, 4000);
-        var importName = path.basename(f.dest).replace('.css', '') + '-import.css'
+        var importName = path.basename(f.dest).replace('.css', '') + '-import.css';
         grunt.file.write(path.dirname(f.dest) + '/' + importName, input1);
         grunt.log.writeln('File "' + path.dirname(f.dest) + '/' + importName +'" created.');
         var result = { type: 'import', import: 'url(\'' + importName + '\')' };

@@ -1,10 +1,12 @@
 # IE friendly
 ## Parsing mobile first styles for IE8 (grunt-ie-friendly)
 
-IE Friendly removes media queries for IE desktop styles and splits large stylesheets into smaller sizes
+IE Friendly removes media queries for IE desktop styles and splits large stylesheets into smaller sizes.
+
+Please note this project is no longer actively maintained in light of [end of support for IE8](https://www.microsoft.com/en-us/WindowsForBusiness/End-of-IE-support)
 
 ## Getting Started
-This plugin requires Grunt `~0.4.2`
+This plugin requires Grunt `^0.4.2`
 
 Add plugin to your package.json:
 
@@ -54,19 +56,6 @@ grunt.registerTask('ie','ie_friendly');
 ```
 
 
-### Options
-
-#### options.minify
-
-Earmarked for release 0.2
-
-
-### Roadmap
-
-0.1 testing against current project
-
-0.2 Add minification option
-
 
 ## Release History
 0.0.1 Initial release
@@ -74,3 +63,5 @@ Earmarked for release 0.2
 0.1.0 package.json updates
 
 0.1.1 plugin testing
+
+0.1.3 jshint fix and maintainance notice
